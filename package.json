@@ -1,0 +1,28 @@
+{
+  "name": "scorebot",
+  "version": "1.0.0",
+  "description": "A Discord bot to fetch scores for any major sport.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliotChignell/ScoreBot.git"
+  },
+  "keywords": [
+    "sports",
+    "discord"
+  ],
+  "author": "Eliot Chignell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EliotChignell/ScoreBot/issues"
+  },
+  "homepage": "https://github.com/EliotChignell/ScoreBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "fs": "0.0.1-security",
+    "node-fetch": "^2.6.1"
+  }
+}

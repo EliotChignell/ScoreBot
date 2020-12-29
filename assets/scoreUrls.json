@@ -1,0 +1,4 @@
+{
+    "nba": ["https://www.espn.com/nba/scoreboard/", "https://www.espn.com/nba/scoreboard/_/date/[date]"],
+    "nfl": ["https://www.espn.com/nfl/scoreboard/", "https://www.espn.com/nfl/scoreboard/_/year/[year]/seasontype/[seasontype]/week/[week]"]
+}
