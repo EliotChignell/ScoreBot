@@ -35,6 +35,28 @@ module.exports = {
                     break;
                 
                 case `nfl`: // [year, seasontype, week] needed
+                    let year, seasontype, week;
+                    for (var i = 0; i < args.length; i++) {
+                        if (parseInt(args[i]) && args[i].length == 4) { // User has specified year
+                            year = parseInt(args[i]);
+                        } else if (parseInt(args[i]) && parseInt(args[i]) < 20) {
+                            week = parseInt(args[i]);
+                        } else if (args[i].toLowerCase() == `playoffs`) {
+                            seasontype = 3;
+                        } else if (args[i].toLowerCase() == `preseason`) {
+                            seasontype = 1;
+                        }
+                    }
+                    if (!year) year = 2020;
+                    if (!seasontype) seasontype = 2;
+                    if (!week) week = 1;
+
+                    url = scoreUrls[mode][1];
+                    // Adding elements into url
+                    url = url.split(`[year]`).join(year);
+                    url = url.split(`[seasontype]`).join(seasontype);
+                    url = url.split(`[week]`).join(week);
+                    today = false;
                     break;
             }
         }
@@ -44,8 +66,8 @@ module.exports = {
 
         // Narrowing down scraped HTML to find JSON object
 		html = html.substring(html.search(`window.espn.scoreboardData`), html.length);
-		html = html.substring(html.search(`{`), html.search(`}}}]}`) + `}}}]}`.length);
-
+        html = html.substring(html.search(`{`), html.search(`}}}]}`) + `}}}]}`.length);
+        
 		// Finalling turning it into a JSON object
 		if (!JSON.parse(html)) message.reply(`an error occurred fetching scores from that date.`);
         let json = JSON.parse(html);
@@ -58,19 +80,20 @@ module.exports = {
 
         for (var i = 0; i < json.events.length; i++) {
             let game = json.events[i].competitions[0];
-            let str1 = ``, str2 = `...`;
+            let str1 = ``, str2 = (json.events[i].links[0].href) ? `[<:espn4:793709364274921493> Link](${json.events[i].links[0].href}) ` : ``;
 
-            str1 += `${game.competitors[0].team.shortDisplayName} ${game.competitors[0].score} - ${game.competitors[1].score} ${game.competitors[0].team.shortDisplayName}`;
+            str1 += `${game.competitors[0].team.shortDisplayName} ${game.competitors[0].score} - ${game.competitors[1].score} ${game.competitors[1].team.shortDisplayName} | ${json.events[i].status.type.shortDetail}`;
             // Seeing if a headline is available
             if (game.headlines) {
                 if (game.headlines[0]) {
                     if (game.headlines[0].shortLinkText) {
                         // Seeing if a video is available, then add as link
-                        str2 = `${game.headlines[0].shortLinkText}`;
+                        str2 += `${game.headlines[0].shortLinkText}`;
                     }
                 }
             }
 
+            // Sometimes a field can become empty so if that happens, the bot won't crash
             try {
                 embed.addField(str1, str2);
             } catch (e) {

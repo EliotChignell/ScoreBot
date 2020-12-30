@@ -40,6 +40,7 @@ client.on(`message`, message => {
 	if (!client.commands.has(command)) return;
 
 	try {
+		console.log(`[${message.author.tag}] ${message.content}`);
 		client.commands.get(command).execute(message, args, prefix.split(` `).join(``));
 	} catch (error) {
 		console.error(error);
