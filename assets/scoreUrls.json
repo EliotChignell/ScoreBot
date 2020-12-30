@@ -1,4 +1,8 @@
 {
     "nba": ["https://www.espn.com/nba/scoreboard/", "https://www.espn.com/nba/scoreboard/_/date/[date]"],
-    "nfl": ["https://www.espn.com/nfl/scoreboard/", "https://www.espn.com/nfl/scoreboard/_/year/[year]/seasontype/[seasontype]/week/[week]"]
+    "nfl": ["https://www.espn.com/nfl/scoreboard/", "https://www.espn.com/nfl/scoreboard/_/year/[year]/seasontype/[seasontype]/week/[week]"],
+    "epl": ["https://www.espn.com/football/scoreboard/_/league/eng.1", "https://www.espn.com/football/scoreboard/_/league/eng.1/date/[date]"],
+    "laliga": ["https://www.espn.com/football/scoreboard/_/league/esp.1", "https://www.espn.com/football/scoreboard/_/league/ESP.1/date/[date]"],
+    "bundesliga": ["https://www.espn.com/football/scoreboard/_/league/ger.1", "https://www.espn.com/football/scoreboard/_/league/GER.1/date/[date]"],
+    "afl": ["https://www.espn.com/afl/scoreboard", "https://www.espn.com/afl/scoreboard/_/year/[year]/seasontype/[seasontype]/week/[week]"]
 }

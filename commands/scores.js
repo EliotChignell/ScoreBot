@@ -23,6 +23,8 @@ module.exports = {
             // Looking for scores from another date
             switch (mode) {
                 case `nba`: // date needed
+                case `epl`:
+                case `bundesliga`:
                     if (!args[0].split(``).includes(`/`)) return message.channel.send(`Please provide a valid date. E.g. \`nba scores 2019/03/02\` (yyyy/mm/dd format).`);
                     if (args[0].split(`/`).length != 3) return message.channel.send(`Please provide a valid date. E.g. \`nba scores 2019/03/02\` (yyyy/mm/dd format).`);
                     if (args[0].split(`/`)[1].length == 1) args[0] = `${args[0].split('/')[0]}/0${args[0].split('/')[1]}/${args[0].split('/')[2]}`;
