@@ -7,5 +7,6 @@ A Discord bot to fetch scores for any major sport.
 3) Copy the bot token (never share this to anyone) and NOT the Client ID/Client Secret/Public Key.
 4) Paste the bot token into `config.json.example`, replacing `t0k3n_g0e5_h3r3`.
 5) Rename `config.json.example` to just `config.json`.
-2) Install [NodeJS](https://nodejs.org/) on your computer if you haven't already. I don't know the specific version required, default to the latest if things don't work.
-3) Run `node bot.js`.
+6) Install [NodeJS](https://nodejs.org/) on your computer if you haven't already. I don't know the specific version required, default to the latest if things don't work.
+7) Run `npm install` in the bot's directory to install the necessary packages.
+8) Run `node bot.js`.
